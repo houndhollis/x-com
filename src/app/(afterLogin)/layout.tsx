@@ -7,8 +7,14 @@ import NavMenu from "./_component/NavMenu";
 import LogoutButton from "./_component/LogoutButton";
 import TrendSection from "./_component/TrendSection";
 import FollowRecommend from "./_component/FollowRecommend";
+import RightSearchZone from "./_component/RightSearchZone";
 
-export default function AfterLoginLayout({ children }: { children: ReactNode }) {
+type Props = { 
+  children: ReactNode, 
+  modal: ReactNode, 
+};
+
+export default function AfterLoginLayout({ children, modal }: Props) {
   return (
     <div className={style.container}>
       <header className={style.leftSectionWrapper}>
@@ -44,6 +50,7 @@ export default function AfterLoginLayout({ children }: { children: ReactNode }) 
                 <input type="search" />
               </form>
             </div>
+            <RightSearchZone/>
             <TrendSection />
             <div className={style.followRecommend}>
               <h3>팔로우 추천</h3>
@@ -54,6 +61,7 @@ export default function AfterLoginLayout({ children }: { children: ReactNode }) 
           </section>
         </div>
       </div>
+      {modal}
     </div>
   )
 }
